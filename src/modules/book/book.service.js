@@ -57,7 +57,9 @@ export const deletebook = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-   const {thisbook} = await Bookmodel.findById(id);
+   const thisbook = await Bookmodel.findById(id);
+console.log(thisbook);
+
 
     if (!thisbook) {
       return res.status(404).json({ message: "Book not found" });
