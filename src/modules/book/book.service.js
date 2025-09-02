@@ -67,7 +67,7 @@ console.log(thisbook);
 
 
     const book = await Bookmodel.updateOne({ _id: id }, { isDeleted: true , deletedBy:req.user._id});
-    return res.status(200).json({ message: "success deleted this book", book: {...book} });
+    return res.status(200).json({ message: "success deleted this book now", book: {...book} });
   } catch (error) {
     next(error);
   }
