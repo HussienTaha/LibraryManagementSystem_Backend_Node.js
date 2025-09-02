@@ -7,6 +7,7 @@ import chalk from "chalk"
         console.log(chalk.bgGreen('✅ DB connected successfully..............❤️  😎'))
     } catch (error) {
         console.log(chalk.bgRed('❌ DB connection failed..........❤️  😎',error.message))   
+           
     }
   }
 
