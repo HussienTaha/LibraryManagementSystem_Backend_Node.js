@@ -33,6 +33,7 @@ export const MIME_GROUPS = {
     'text/plain'
   ],
 };
+export const ALL_MIME_TYPES = Object.values(MIME_GROUPS).flat();
 
 
 

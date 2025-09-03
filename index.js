@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import path from 'path'
+import cors from 'cors'
 dotenv.config({path:path.resolve('src/config/.env')})
 import express from 'express'
 import helmet from 'helmet'
@@ -16,6 +17,7 @@ const app = express()
 app.use(limiter)
 app.use(morgan('combined'))
 app.use(helmet())
+app.use(cors())
 const port = process.env.PORT || 5000
 bootstrap(app,express)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

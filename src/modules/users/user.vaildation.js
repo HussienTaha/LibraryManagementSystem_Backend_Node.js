@@ -1,5 +1,6 @@
 import joi from "joi";
 import { UserGender, usersRoles } from "../../DB/models/user.model.js";
+import { ALL_MIME_TYPES, MIME_GROUPS } from "../../middleware/multer.js";
 
 // لو عندك مجموعة MIME_TYPES لازم تكون Array of strings
 
@@ -68,11 +69,16 @@ export const signupValidation = {
       "postman-token": joi.string().required(),
     }).unknown(true), // ✅ خلي headers يقبل أي حاجة زيادة
 
-  // file: joi.object({
-  //   originalname: joi.string().required(),
-  //   mimetype: joi.string().valid(...MIME_GROUPS).required(), // ✅ لازم تفك array بالـ ...
-  //   size: joi.number().max(5 * 1024 * 1024).required(), // 5MB
-  // }),
+file: joi.object({
+  fieldname: joi.string().required(),
+  originalname: joi.string().required(),
+  encoding: joi.string().required(),
+  mimetype: joi.string().valid(...ALL_MIME_TYPES).required(),
+  destination: joi.string(),
+  filename: joi.string(),
+  path: joi.string(),
+  size: joi.number().max(5 * 1024 * 1024).required(),
+}).optional(),
 };
 export const signinuserValidationSchema = {
   body: joi.object({
